@@ -9,15 +9,19 @@
                 <el-form-item v-if="item.type === 'input' || isEmpty(item.type)" :label="item.label">
                     <el-input
                         v-model="item.value"
+                        :style="{ minWidth: '100px' }"
                         :disabled="item.disabled"
                         :placeholder="item.placeholder"
                         @change="(newVal) => handleValueChange(newVal, item)"
-                    />
+                    >
+                       <template v-if="propValue.showAppend  && !isEmpty(item[propValue.showAppendName])" #append>{{ item[propValue.showAppendName] }}</template>
+                    </el-input>
                 </el-form-item>
                 <el-form-item v-if="item.type === 'select'" :label="item.label">
                     <el-select
                         v-model="item.value"
                         :disabled="item.disabled"
+                        :style="{ minWidth: '100px' }"
                         :placeholder="item.placeholder"
                         @change="(newVal) => handleValueChange(newVal, item)"
                     >
@@ -67,6 +71,8 @@ export default {
                 activateText: "",
                 size: 'small',
                 labelPosition: 'right',
+                showAppend: false,
+                showAppendName: '',
                 formData: [
                     {
                         name: 'ErFormItem1',

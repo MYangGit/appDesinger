@@ -24,7 +24,7 @@ export default {
     fixedHeight: '',
     display: 'block',
     backgroundColor: '#ffffff',
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: '#dcdfe6',
     borderStyle: 'solid',
   },

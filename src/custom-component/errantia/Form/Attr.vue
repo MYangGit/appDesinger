@@ -19,6 +19,12 @@
                 <el-form-item label="匹配内容选中：">
                     <el-input  v-model="curComponent.propValue.activateText"  size="small" />
                 </el-form-item>
+                <el-form-item label="显示追加后缀：">
+                    <el-checkbox v-model="curComponent.propValue.showAppend" size="small" />
+                </el-form-item>
+                <el-form-item label="后缀名称：">
+                    <el-input  v-model="curComponent.propValue.showAppendName" size="small" />
+                </el-form-item>
             </el-form>
         </CommonAttr>
     </div>

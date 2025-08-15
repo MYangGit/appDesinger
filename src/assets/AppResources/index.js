@@ -16,6 +16,10 @@ import add from './pulse/add.svg'
 import copy from './pulse/copy.svg'
 import deletes from './pulse/delete.svg'
 import uca from './sensor/UCA.svg'
+import sessionExport from './wireless/sessionExport.svg'
+import filter_design from './wireless/filter_design.svg'
+import filter_export from './wireless/filter_export.svg'
+import fvtool from './wireless/fvtool.svg'
 
 
 export const WIRELESS = {
@@ -33,7 +37,11 @@ export const WIRELESS = {
     add,
     copy,
     deletes,
-    uca
+    uca,
+    sessionExport,
+    filter_design,
+    filter_export,
+    fvtool
 }
 
 export const Radar = {

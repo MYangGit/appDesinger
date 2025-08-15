@@ -2,6 +2,7 @@ export default {
   component: 'ErCheckBox',
   label: '单选框',
   propValue: {
+    funParam: "",
     value: false,
     label: '字段名',
     disabled: false,

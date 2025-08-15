@@ -11,6 +11,11 @@
                     <el-checkbox v-model="curComponent.propValue.disabled" size="small" />
                 </el-form-item>
             </el-form>
+            <el-form>
+                <el-form-item label="函数参数：">
+                    <el-input v-model="curComponent.propValue.funParam" size="small" />
+                </el-form-item>
+            </el-form>
         </CommonAttr>
     </div>
 </template>

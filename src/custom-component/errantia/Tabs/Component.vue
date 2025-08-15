@@ -33,7 +33,7 @@
             @tab-remove="handleRemove"
             @tab-click="handleClick"
         >
-            <el-tab-pane 
+            <el-tab-pane
                 v-for="tab in tabsItem?.filter((i) => i.visible)" 
                 :key="tab.name" 
                 :label="tab.label" 
@@ -168,5 +168,11 @@ export default {
 <style lang="less" scoped>
 .preview {
     user-select: none;
+}
+</style>
+
+<style>
+.el-tabs--bottom .el-tabs__nav, .el-tabs--top .el-tabs__nav {
+    height: auto;
 }
 </style>

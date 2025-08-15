@@ -23,6 +23,7 @@ export default {
                 label: '',
                 value: false,
                 disabled: false,
+                funParam: "",
             }),
         },
         element: {
@@ -32,7 +33,7 @@ export default {
     },
     methods: {
         handleValueChange(newVal) {
-            onChange({element: this.element, newValue: newVal})
+            onChange({element: this.element, newValue: newVal, params:{ label: this.label, funParam: this.propValue.funParam }})
         },
     },
     computed: {

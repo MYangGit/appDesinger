@@ -5,6 +5,8 @@ export default {
     type: 'errantia',
     propValue: {
         size: 'small',
+        showAppend: false,
+        showAppendName: '',
         labelPosition: 'right',
         formData: [
             {

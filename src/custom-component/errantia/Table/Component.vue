@@ -23,7 +23,7 @@
                 </erFlex>
             </template>
             <template v-if="serialNumber" v-slot:serialNumber="{ index }">
-               <span>{{ index }}</span>
+               <span>{{ index + 1 }}</span>
             </template>
             <template v-slot:name="{ row, index, column }">
                 <input 
@@ -49,7 +49,7 @@
                 </div>
             </template>
             <template v-slot:custom="{ row, index, column, colIdx }">
-                <div @click.stop>
+                <div>
                     <el-checkbox 
                         v-if="column?.type === 'checkbox'" 
                         v-model="row[column.key]" 
@@ -58,14 +58,14 @@
                     <el-input
                         v-else-if="column?.type === 'input'"
                         type="text"
-                        :style="{ width: `${column?.width}px` }"
+                        :style="{ width: `${column?.width}px`, minWidth: '100px' }"
                         v-model="row[column.key]"
                         @paste.stop="handlePaste($event, index, colIdx)"
                     />
                     <el-select
                         v-else-if="column?.type === 'select'"
                         v-model="row[column.key]"
-                        :style="{ width: `${column?.width}px` }"
+                        :style="{ width: `${column?.width}px`, minWidth: '100px' }"
                         @change="(newVal) => handleSelectChange(newVal, row, index, column)"
                     >
                         <template v-if="!isEmpty(column?.options)"  v-for="opt of column.options">

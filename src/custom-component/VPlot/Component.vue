@@ -104,6 +104,7 @@ export default {
     },
     mounted() {
         const targetDiv = document.getElementById('chart');
+        if(!targetDiv) return
         const observer = new ResizeObserver(entries => {
             clearTimeout(this.resizeTimer);
             this.resizeTimer = setTimeout(() => {
