@@ -17,8 +17,10 @@
 import { rootStore } from '@/stores/rootStore';
 import { getComputedGet, getComputedSet } from '@/utils/utils';
 import { useEventCentre } from '@/hooks/useEventCentre';
+import { useUtilsCentre } from '@/hooks/useUtilsCentre';
 
 const { onChange, onClickOther } = useEventCentre();
+const { disablePro } = useUtilsCentre();
 export default {
     props: {
         propValue: {
@@ -65,7 +67,8 @@ export default {
         },
         disabled: {
             get() {
-                return getComputedGet('disabled', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue)
+                let disVal =  getComputedGet('disabled', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue)
+                return disablePro(disVal, this.propValue?.disabledText)
             },
             set(val) {
                 getComputedSet('disabled', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue, val)
