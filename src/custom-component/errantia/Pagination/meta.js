@@ -6,7 +6,8 @@ export default {
     total: 100,
     currentPage: 1,
     disabled: false,
-    hideOnSinglePage: false
+    hideOnSinglePage: false,
+    activateText: '',
   },
   icon: 'chart-line',
   type: 'errantia',
@@ -16,5 +17,8 @@ export default {
     fixedWidth: '',
     fixedHeight: '',
     backgroundColor: '#ffffff',
+  },
+  actionBinds: {
+    currentpChange:''
   }
 }

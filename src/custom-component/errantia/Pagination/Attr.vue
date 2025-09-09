@@ -1,6 +1,9 @@
 <template>
     <div class="attr-list">
         <CommonAttr>
+            <el-form-item label="自定义点击参数">
+                <el-input  v-model="curComponent.propValue.activateText"  size="small" />
+            </el-form-item>
             <el-form-item label="pageSize">
                 <el-input-number v-model="curComponent.propValue.pageSize" size="small" :min="1" />
             </el-form-item>

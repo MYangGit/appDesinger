@@ -3,7 +3,7 @@
         <el-pagination 
             background 
             layout="prev, pager, next" 
-            v-model:current-page="currentPage1"
+            v-model:current-page="currentPage"
             :page-size="pageSize"
             :total="total"
             :disabled="propValue.disabled"
@@ -17,6 +17,9 @@
 import { computed } from "vue";
 import { getComputedGet, getComputedSet, } from "@/utils/utils";
 import { rootStore } from '@/stores/rootStore';
+import { useEventCentre } from '@/hooks/useEventCentre';
+
+const { onClickOther } = useEventCentre();
 
 const props = defineProps({
     propValue: {
@@ -26,7 +29,8 @@ const props = defineProps({
             currentPage: 1,
             total: 100,
             disabled: false,
-            hideOnSinglePage: false
+            hideOnSinglePage: false,
+            activateText: '',
         }),
     },
     element: {
@@ -62,6 +66,7 @@ const total = computed({
 
 function handleCurrentChange(page) {
     console.log('页数改变page', page);
+    onClickOther({element: props.element, clickName: 'currentpChange', params: { newVal: page, activateText: props.propValue.activateText }})
 }
 </script>
 
