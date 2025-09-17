@@ -9,6 +9,7 @@
             @focus="handleFocus"
             @change="handleValueChange"
             @blur="handleValublur"
+            @keydown.enter="handleEnter"
         />
     </div>
 </template>
@@ -29,7 +30,8 @@ export default {
                 label: '',
                 value: '',
                 disabled: false,
-                showPassword: false
+                showPassword: false,
+                activateText: "",
             }),
         },
         element: {
@@ -42,11 +44,15 @@ export default {
             this.oldValue = this.value
         },
         handleValublur() {
-           onClickOther({element: this.element, clickName: 'blur', params: { newVal: this.value }})
+           onClickOther({element: this.element, clickName: 'blur', params: { newVal: this.value, activateText: this.propValue?.activateText }})
         },
         handleValueChange(newVal) {
-          onChange({element: this.element, newValue: newVal, oldValue: this.oldValue})
+          onChange({element: this.element, newValue: newVal, oldValue: this.oldValue, params: { activateText: this.propValue?.activateText }})
         },
+        handleEnter() {
+            console.log('enter 触发了')
+            onClickOther({element: this.element, clickName: 'enter', params: { newVal: this.value , activateText: this.propValue?.activateText }})
+        }
     },
     computed: {
         label: {

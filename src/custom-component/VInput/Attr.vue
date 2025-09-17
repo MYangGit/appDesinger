@@ -2,6 +2,9 @@
     <div class="attr-list">
         <CommonAttr>
             <el-form>
+                <el-form-item label="自定义点击参数">
+                    <el-input  v-model="curComponent.propValue.activateText"  size="small" />
+                </el-form-item>
                 <el-form-item label="label">
                     <el-input v-model="curComponent.propValue.label" size="small" />
                 </el-form-item>

@@ -6,6 +6,7 @@ export default {
     label: '字段名',
     disabled: false,
     showPassword: false,
+    activateText: "",
   },
   exposeAttr: ['value'],
   icon: 'input',
@@ -27,5 +28,6 @@ export default {
   actionBinds: {
     change: '',
     blur: '',
+    enter: '',
   }
 }

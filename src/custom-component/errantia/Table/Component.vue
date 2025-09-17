@@ -97,7 +97,10 @@
                             :content="row[column.key]"
                             placement="bottom"
                         >
-                        <div class="nameText" :style="{ width: `${column?.width}px`, maxHeight: `300px` }"  >{{row[column.key]}}</div>
+                        <div class="nameText" :style="{ width: `${column?.width}px`, maxHeight: `300px` }"> 
+                            <el-icon v-if="column?.type === 'Cloud' && row?.iscloud"><MostlyCloudy /></el-icon>
+                            {{row[column.key]}}
+                        </div>
                     </el-tooltip>
                     </div>
                 </template> 

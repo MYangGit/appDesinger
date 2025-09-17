@@ -42,3 +42,5 @@ packages/syslab/syslabApp.json
 packages/desktop/dist
 packages/desktop/node_modules
 packages/desktop/out
+packages/desktop
+out
