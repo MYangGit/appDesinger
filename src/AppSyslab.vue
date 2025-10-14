@@ -21,6 +21,11 @@
 button:focus {
   outline: none !important;
 }
+/* 滚动条加粗 */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
 </style>
 
  

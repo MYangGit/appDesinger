@@ -10,6 +10,7 @@
             :data="options"
             :node-key="propValue.nodeKey"
             :props="defaultProps"
+            :default-checked-keys="value"
             @check-change="handleValueChange"
         />
     </div>

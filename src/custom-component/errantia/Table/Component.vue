@@ -50,11 +50,15 @@
                 </template>
                 <template v-slot:custom="{ row, index, column, colIdx }">
                     <div>
+                        
                         <el-checkbox 
                             v-if="column?.type === 'checkbox'" 
                             v-model="row[column.key]" 
                             @change="handleRowCheckbox(row, index, column)"
                         />
+                        <div v-else-if="column?.type === 'wrap'" style="white-space: pre-line;">
+                            {{ row[column.key] }}
+                        </div>
                         <el-input
                             v-else-if="column?.type === 'input'"
                             type="text"

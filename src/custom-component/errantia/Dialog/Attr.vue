@@ -5,6 +5,9 @@
                 <el-form-item label="标题：">
                     <el-input  v-model="curComponent.propValue.title"  size="small" />
                 </el-form-item>
+                <el-form-item label="自定义点击参数">
+                    <el-input v-model="curComponent.propValue.activateText" size="small" />
+                </el-form-item>
                 <el-form-item label="显示浮窗：">
                     <el-checkbox v-model="curComponent.propValue.showVisible"  size="small" />
                 </el-form-item>

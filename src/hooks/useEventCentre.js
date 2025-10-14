@@ -34,6 +34,7 @@ const getFunction = (actionKey) => {
 
 export const excuteJsAction = (actionName, eventParams = {}) => {
    let fn = getFunction(actionName)
+   if (!fn) return;
    return fn({dataCenter: rootStore.dataConfig.stateSet, actionCenter: actionCenter.value, globalUtils: useGlobalUtils()}, eventParams)
 }
 

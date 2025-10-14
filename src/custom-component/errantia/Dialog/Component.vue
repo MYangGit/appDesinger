@@ -6,7 +6,7 @@
             :width="propValue.width + 'px'"
             :outStyleBody="{height: propValue.height + 'px', flex: 'none'}"
             :isVisible="isShowVisible || propValue.showVisible"
-            @close="isShowVisible = false"
+            @close="handleClose"
         >
             <div v-if="editMode == 'edit'" style="width: 100%; height: 100%;" class="v-tabs">
                 <Container
@@ -33,8 +33,10 @@ import PreviewContainer from '../../common/PreviewContainer.vue';
 import { getComputedGet, getComputedSet } from '@/utils/utils';
 import { rootStore } from '@/stores/rootStore';
 import { erDialog } from 'errantia';
+import { useEventCentre } from '@/hooks/useEventCentre';
 
 
+const { onClickOther } = useEventCentre();
 export default {
     components: {
         Container,
@@ -45,6 +47,7 @@ export default {
         propValue: {
             type: Object,
             default: () => ({
+                activateText: '',
                 isShowVisible: false,
                 showVisible: false,
                 showDialogHeader: false,
@@ -87,7 +90,10 @@ export default {
         }
     },
     methods: {
-        
+        handleClose() {
+            onClickOther({element: this.element, clickName: 'handleXClose', params: { isShowVisible: this.isShowVisible, title: this.title, activateText: this.propValue.activateText }});
+            this.isShowVisible = false;
+        }
     }
 };
 </script>

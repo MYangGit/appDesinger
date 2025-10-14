@@ -4,6 +4,7 @@ export default {
   icon: 'VPanel',
   type: 'errantia',
   propValue: {
+    activateText: '',
     isShowVisible: true,
     showVisible: false,
     showDialogHeader: false,
@@ -19,4 +20,7 @@ export default {
   },
   childs: [],
   position: 'top',
+  actionBinds: {
+    handleXClose: ''
+  }
 }
