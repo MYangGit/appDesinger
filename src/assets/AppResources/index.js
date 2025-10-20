@@ -41,7 +41,8 @@ export const WIRELESS = {
     sessionExport,
     filter_design,
     filter_export,
-    fvtool
+    fvtool,
+    metric
 }
 
 export const Radar = {

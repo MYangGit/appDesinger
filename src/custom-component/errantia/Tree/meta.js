@@ -3,6 +3,7 @@ export default {
   label: '树形控件',
   propValue: {
     defaultExpandAll: false,
+    customtreenode: false,
     options: [
         {
             id: 1,

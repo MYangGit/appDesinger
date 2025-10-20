@@ -11,6 +11,9 @@
                 <el-form-item label="展开所有节点：">
                     <el-checkbox  v-model="curComponent.propValue.defaultExpandAll"  size="small" />
                 </el-form-item>
+                <el-form-item label="自定义树节点：">
+                    <el-checkbox  v-model="curComponent.propValue.customtreenode"  size="small" />
+                </el-form-item>
                 <el-form-item label="value">
                     <el-input  v-model="curComponent.propValue.value"  size="small" />
                 </el-form-item>

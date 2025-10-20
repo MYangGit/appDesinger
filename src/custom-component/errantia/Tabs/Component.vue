@@ -24,14 +24,15 @@
             </el-tab-pane>
         </el-tabs>
     </div>
-    <div v-else class="preview">
+    <div v-else class="preview preview-tabs">
         <el-tabs 
-            style="border: none"
+            style="border: none ;"
             v-model="autoActiveName" 
             :tab-position="element.position" 
             type="border-card"
             @tab-remove="handleRemove"
             @tab-click="handleClick"
+            @tab-change="handleChange"
         >
             <el-tab-pane
                 v-for="tab in tabsItem?.filter((i) => i.visible)" 
@@ -161,6 +162,9 @@ export default {
             const params = this.tabsItem.filter((i) => i.name === tab.props.name)[0].params;
             onClickOther({element: this.element, clickName: 'onClickTab', params: { nameItem : {...tab.props, params}, activeName: this.activeName, activateText: this.activateText }})
         },
+        handleChange(tab) {
+           console.log('handleChange', tab);
+        },
     },
 };
 </script>
@@ -169,10 +173,17 @@ export default {
 .preview {
     user-select: none;
 }
+
 </style>
 
-<style>
+<style lang="less">
 .el-tabs--bottom .el-tabs__nav, .el-tabs--top .el-tabs__nav {
     height: auto;
+}
+.preview-tabs {
+    .el-tabs__nav-scroll {
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+    }
 }
 </style>

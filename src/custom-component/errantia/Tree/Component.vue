@@ -12,7 +12,16 @@
             :props="defaultProps"
             :default-checked-keys="value"
             @check-change="handleValueChange"
-        />
+        >
+           <template v-if="propValue.customtreenode" #default="{ node, data }">
+                    <div class="custom-tree-node">
+                        <span>{{ node.label }}</span>
+                        <el-tooltip :content="data.taskName" placement="top">
+                            <span class="truncated-text">{{ data.taskName }}</span>
+                        </el-tooltip>
+                    </div>
+            </template>
+        </el-tree>
     </div>
 </template>
 
@@ -37,6 +46,7 @@ export default {
             type: Object,
             default: () => ({
                 nodeKey: "id",
+                customtreenode: false,
                 defaultExpandAll: false,
                 value:[],
                 activateText: "",
@@ -167,6 +177,17 @@ export default {
         word-break: keep-all;
         white-space: nowrap;
         margin-bottom: 0;
+    }
+    .truncated-text {
+        display: inline-block;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80px; /* 根据需要调整宽度 */
+        margin-left: 5px;
+        font-size: 10px;
+        font-style: italic;
     }
 }
 </style>

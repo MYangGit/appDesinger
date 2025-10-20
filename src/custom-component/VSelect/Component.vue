@@ -5,8 +5,9 @@
             v-model="value" 
             size="small" 
             placeholder="请选择"
-            @change="handleValueChange"
+            :loading="loading"
             :disabled="disabled"
+            @change="handleValueChange"
         >
             <el-option
                 v-for="item, index in options"
@@ -33,6 +34,7 @@ export default {
                 value: '',
                 disabled: false,
                 options: [],
+                loading: false,
             }),
         },
         element: {
@@ -76,6 +78,14 @@ export default {
             },
             set(val) {
                 getComputedSet('options', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue, val)
+            }
+        },
+        loading: {
+            get() {
+                return getComputedGet('loading', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue)
+            },
+            set(val) {
+                getComputedSet('loading', this.element.dataBinds, rootStore.dataConfig.stateSet, this.propValue, val)
             }
         },
         disabled: {

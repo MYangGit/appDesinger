@@ -143,6 +143,7 @@ export default {
         outline: none;
         word-break: break-all;
         padding: 4px;
+        white-space: nowrap
     }
 
     .canEdit {
